@@ -37,5 +37,5 @@ export const useGetCapsules = () => {
     isFetchingGetCapsules,
     isLoadingGetCapsules,
     isSuccessGetCapsules
-  }
+  };
 };
