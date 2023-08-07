@@ -16,8 +16,18 @@ const defaultTheme = createTheme({
       fontSize: '2rem' // Custom font size for h2
     }
     // Add other customizations for typography as needed
-  }
+  },
+  // spacing: 8 // Set your desired spacing unit here
   // Add more theme customizations here (spacing, breakpoints, etc.)
+  components: {
+    MuiScopedCssBaseline: {
+      styleOverrides: {
+        root: {
+          boxSizing: 'border-box'
+        }
+      }
+    }
+  }
 });
 
 export default defaultTheme;

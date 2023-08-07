@@ -1,34 +1,41 @@
+import { Theme } from '@mui/material';
 import { makeStyles, createStyles } from '@mui/styles';
 
-export const useStyles = makeStyles(() =>
+export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    navbar: {
+      backgroundColor: 'black',
+      boxShadow: 'none'
+    },
     linkText: {
       color: 'white',
       textDecoration: 'none',
-      position: 'relative', // To create a stacking context for the pseudo-element
-      '&:hover': {
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          left: 0,
-          bottom: 0,
-          width: 0, // Start with zero width
-          height: '2px',
-          background: 'white',
-          animation: '$underlineAnimation 0.4s forwards' // Apply the animation on hover
-        }
-      }
-    },
-    marginLeft: {
-      marginLeft: '3em'
-    },
-    '@keyframes underlineAnimation': {
-      '0%': {
-        width: 0 // Start from zero width (far left)
+      position: 'relative',
+      '&::before': {
+        content: '""',
+        position: 'absolute',
+        left: 0,
+        bottom: 0,
+        width: 0,
+        height: '2px',
+        background: 'white',
+        transition: 'width 0.4s'
       },
-      '100%': {
-        width: '100%' // Go to the full width of the text (far right)
+      '&:hover::before': {
+        width: '100%'
       }
+    },
+    linkContainer: {
+      display: 'flex', // Set to display as flex
+      alignItems: 'center', // Vertically center the items within the container
+      '& > *': {
+        margin: theme.spacing(2) // Add spacing between Link components
+      }
+    },
+    container: {
+      display: 'flex', // Set to display as flex
+      width: '90%',
+      margin: 'auto'
     }
   })
 );
