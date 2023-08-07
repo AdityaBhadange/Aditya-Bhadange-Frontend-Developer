@@ -26,6 +26,13 @@ const defaultTheme = createTheme({
           boxSizing: 'border-box'
         }
       }
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          color: 'white'
+        }
+      }
     }
   }
 });
