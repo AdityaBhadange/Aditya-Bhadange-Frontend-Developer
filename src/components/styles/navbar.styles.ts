@@ -37,6 +37,10 @@ export const useStyles = makeStyles((theme: Theme) =>
     container: {
       width: '90%',
       margin: 'auto'
+    },
+    iconStyle: {
+      height: 80,
+      width: '9.2rem'
     }
   })
 );

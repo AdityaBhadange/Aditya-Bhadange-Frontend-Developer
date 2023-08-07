@@ -10,8 +10,8 @@ const Navbar = () => {
 
   return (
     <Box component="nav" display="flex" alignItems="center" className={classes.navbar}>
-      <Box>
-        <SpaceXIcon style={{ height: 80, width: '9.2rem' }} />
+      <Box ml={1}>
+        <SpaceXIcon className={classes.iconStyle} />
       </Box>
       <Box className={classes.linkContainer}>
         <Link to="/" className={classes.linkText}>
