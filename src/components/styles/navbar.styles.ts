@@ -5,7 +5,9 @@ export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     navbar: {
       backgroundColor: 'black',
-      boxShadow: 'none'
+      boxShadow: 'none',
+      width: '90%',
+      margin: 'auto'
     },
     linkText: {
       color: 'white',
@@ -33,7 +35,6 @@ export const useStyles = makeStyles((theme: Theme) =>
       }
     },
     container: {
-      display: 'flex', // Set to display as flex
       width: '90%',
       margin: 'auto'
     }
