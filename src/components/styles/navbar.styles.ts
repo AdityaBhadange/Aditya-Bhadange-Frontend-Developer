@@ -4,7 +4,7 @@ import { makeStyles, createStyles } from '@mui/styles';
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     navbar: {
-      backgroundColor: 'black',
+      backgroundColor: 'transparent',
       boxShadow: 'none',
       width: '90%',
       margin: 'auto'

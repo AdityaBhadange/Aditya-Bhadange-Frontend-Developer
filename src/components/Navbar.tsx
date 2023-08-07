@@ -9,22 +9,35 @@ const Navbar = () => {
   const classes = useStyles();
 
   return (
-    <Box component="nav" display="flex" alignItems="center" className={classes.navbar}>
+    <Box
+      component="nav"
+      display="flex"
+      alignItems="center"
+      className={classes.navbar}
+      sx={{ position: 'relative', zIndex: 1 }}>
       <Box ml={1}>
         <SpaceXIcon className={classes.iconStyle} />
       </Box>
       <Box className={classes.linkContainer}>
         <Link to="/" className={classes.linkText}>
-          <Typography variant="caption">FALCON 9</Typography>
+          <Typography fontWeight="bold" variant="caption">
+            FALCON 9
+          </Typography>
         </Link>
         <Link to="/falcon-heavy" className={classes.linkText}>
-          <Typography variant="caption">FALCON HEAVY</Typography>
+          <Typography fontWeight="bold" variant="caption">
+            FALCON HEAVY
+          </Typography>
         </Link>
         <Link to="/dragon" className={classes.linkText}>
-          <Typography variant="caption">DRAGON</Typography>
+          <Typography fontWeight="bold" variant="caption">
+            DRAGON
+          </Typography>
         </Link>
         <Link to="/starship" className={classes.linkText}>
-          <Typography variant="caption">STARSHIP</Typography>
+          <Typography fontWeight="bold" variant="caption">
+            STARSHIP
+          </Typography>
         </Link>
       </Box>
     </Box>
