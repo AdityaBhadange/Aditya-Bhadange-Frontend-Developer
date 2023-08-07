@@ -21,22 +21,22 @@ const Navbar = () => {
           </Box>
           <Box className={classes.marginLeft}>
             <Link to="/" className={classes.linkText}>
-              <Typography variant="body1">FALCON 9</Typography>
+              <Typography variant="body2">FALCON 9</Typography>
             </Link>
           </Box>
           <Box className={classes.marginLeft}>
             <Link to="/falcon-heavy" className={classes.linkText}>
-              <Typography variant="body1">FALCON HEAVY</Typography>
+              <Typography variant="body2">FALCON HEAVY</Typography>
             </Link>
           </Box>
           <Box className={classes.marginLeft}>
             <Link to="/dragon" className={classes.linkText}>
-              <Typography variant="body1">DRAGON</Typography>
+              <Typography variant="body2">DRAGON</Typography>
             </Link>
           </Box>
           <Box className={classes.marginLeft}>
             <Link to="/starship" className={classes.linkText}>
-              <Typography variant="body1">STARSHIP</Typography>
+              <Typography variant="body2">STARSHIP</Typography>
             </Link>
           </Box>
         </Toolbar>
