@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import { useStyles } from './styles/landingPage.styles';
+import { Link } from 'react-router-dom';
 
 const LandingPageFirstSection = () => {
   const classes = useStyles();
@@ -21,14 +22,19 @@ const LandingPageFirstSection = () => {
       </Box>
       <br />
       <Box className={classes.buttonStyle}>
-        <Button>
-          <Typography
-            className={`rewatchStyle ${classes.textShadow}`}
-            fontWeight={800}
-            variant="caption">
-            REWATCH
-          </Typography>
-        </Button>
+        <Link
+          to="https://www.youtube.com/watch?v=alkJWrqffcw"
+          target="_blank"
+          rel="noopener noreferrer">
+          <Button>
+            <Typography
+              className={`rewatchStyle ${classes.textShadow}`}
+              fontWeight={800}
+              variant="caption">
+              REWATCH
+            </Typography>
+          </Button>
+        </Link>
       </Box>
     </Box>
   );
