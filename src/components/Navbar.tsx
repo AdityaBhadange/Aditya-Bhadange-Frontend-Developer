@@ -14,7 +14,7 @@ const Navbar = () => {
       display="flex"
       alignItems="center"
       className={classes.navbar}
-      sx={{ position: 'relative', zIndex: 1 }}>
+      sx={{ zIndex: 1, position: 'absolute', top: '1rem', left: '4rem' }}>
       <Box ml={1}>
         <SpaceXIcon className={classes.iconStyle} />
       </Box>

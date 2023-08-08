@@ -4,13 +4,13 @@ import Dragon from './Dragon';
 import Falcon9 from './Falcon9';
 import FalconHeavy from './FalconHeavy';
 import LandingPage from './LandingPage';
-import Navbar from './Navbar';
 import Starship from './Starship';
+import AppLayout from './AppLayout';
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
-      <Navbar />
+      <AppLayout />
       <Routes>
         <Route path="/" Component={LandingPage} />
         <Route path="/falcon-heavy" Component={Falcon9} />
