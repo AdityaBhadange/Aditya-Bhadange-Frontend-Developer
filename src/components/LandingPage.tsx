@@ -1,6 +1,7 @@
 import React from 'react';
 import MaterialReactTable, { MRT_ColumnDef } from 'material-react-table';
 import { useGetCapsules, useGetRockets } from '../redux/api.hooks';
+import LandingPageFirstSection from './LandingPageFirstSection';
 
 const LandingPage = () => {
   const rocketsQuery = useGetRockets();
@@ -110,17 +111,19 @@ const LandingPage = () => {
   console.log('rockets: ', rockets);
   console.log('capsules: ', capsules);
 
-  return (
-    <>
-      <div>
-        <h2>Rockets</h2>
-        <MaterialReactTable columns={rocketColumns} data={rockets} />
+  // return (
+  //   <>
+  //     <div>
+  //       <h2>Rockets</h2>
+  //       <MaterialReactTable columns={rocketColumns} data={rockets} />
 
-        <h2>Capsules</h2>
-        <MaterialReactTable columns={capsuleColumns} data={capsules} />
-      </div>
-    </>
-  );
+  //       <h2>Capsules</h2>
+  //       <MaterialReactTable columns={capsuleColumns} data={capsules} />
+  //     </div>
+  //   </>
+  // );
+
+  return <LandingPageFirstSection />;
 };
 
 export default LandingPage;
