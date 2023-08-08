@@ -14,63 +14,56 @@ export const useStyles = makeStyles(() =>
 const Footer = () => {
   const classes = useStyles();
 
+  const FooterLinks = [
+    {
+      text: 'TWITTER',
+      link: 'https://twitter.com/spacex'
+    },
+    {
+      text: 'YOUTUBE',
+      link: 'https://www.youtube.com/spacex'
+    },
+    {
+      text: 'INSTAGRAM',
+      link: 'https://www.instagram.com/spacex/'
+    },
+    {
+      text: 'FLICKR',
+      link: 'https://www.flickr.com/photos/spacex'
+    },
+    {
+      text: 'LINKEDIN',
+      link: 'https://www.linkedin.com/company/spacex'
+    },
+    {
+      text: 'PRIVACY POLICY',
+      link: 'https://www.spacex.com/media/privacy_policy_spacex.pdf'
+    },
+    {
+      text: 'SUPPLIERS',
+      link: 'https://www.spacex.com/supplier/'
+    }
+  ];
+
   return (
     <Box bgcolor="black" color="#fff" py={2}>
       <Grid container justifyContent="center" alignItems="center" spacing={4}>
         <Grid item>
-          <Typography variant="caption">SPACEX © 2023</Typography>
+          <Typography fontSize={12} variant="caption">
+            SPACEX © 2023
+          </Typography>
         </Grid>
-        <Grid item>
-          <Link to="https://twitter.com/spacex" className={classes.linkText}>
-            <Typography fontWeight={500} variant="caption">
-              TWITTER
-            </Typography>
-          </Link>
-        </Grid>
-        <Grid item>
-          <Link to="https://www.youtube.com/spacex" className={classes.linkText}>
-            <Typography fontWeight={500} variant="caption">
-              YOUTUBE
-            </Typography>
-          </Link>
-        </Grid>
-        <Grid item>
-          <Link to="https://www.instagram.com/spacex/" className={classes.linkText}>
-            <Typography fontWeight={500} variant="caption">
-              INSTAGRAM
-            </Typography>
-          </Link>
-        </Grid>
-        <Grid item>
-          <Link to="https://www.flickr.com/photos/spacex" className={classes.linkText}>
-            <Typography fontWeight={500} variant="caption">
-              FLICKR
-            </Typography>
-          </Link>
-        </Grid>
-        <Grid item>
-          <Link to="https://www.linkedin.com/company/spacex" className={classes.linkText}>
-            <Typography fontWeight={500} variant="caption">
-              LINKEDIN
-            </Typography>
-          </Link>
-        </Grid>
-        <Grid item>
-          <Link
-            to="https://www.spacex.com/media/privacy_policy_spacex.pdf"
-            className={classes.linkText}>
-            <Typography fontWeight={500} variant="caption">
-              PRIVACY POLICY
-            </Typography>
-          </Link>
-        </Grid>
-        <Grid item>
-          <Link to="https://www.spacex.com/supplier/" className={classes.linkText}>
-            <Typography fontWeight={500} variant="caption">
-              SUPPLIERS
-            </Typography>
-          </Link>
-        </Grid>
+        {FooterLinks?.map((footerItem) => {
+          return (
+            <Grid key={footerItem.link} item>
+              <Link to={footerItem.link} className={classes.linkText}>
+                <Typography fontWeight={600} fontSize={12}>
+                  {footerItem.text}
+                </Typography>
+              </Link>
+            </Grid>
+          );
+        })}
       </Grid>
     </Box>
   );
