@@ -3,6 +3,7 @@ import React from 'react';
 import { useGetRockets, useGetCapsules } from '../redux/api.hooks';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './styles/capsulesTable.styles';
+import image2 from '../framework/assets/images/space-x-image-2.jpg';
 
 const CapsulesTable = () => {
   const classes = useStyles();
@@ -115,9 +116,32 @@ const CapsulesTable = () => {
   console.log('capsules: ', capsules);
 
   return (
-    <Box className={classes.container}>
-      <Typography variant="h1">Capsules</Typography>
-      <MaterialReactTable columns={capsuleColumns} data={capsules} />
+    <Box>
+      <img
+        src={image2}
+        alt="Background"
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: -1,
+          objectFit: 'cover'
+        }}
+      />
+      <Box mt={4} className={classes.container}>
+        <Typography mb={2} fontWeight={800} variant="h5" className={classes.textShadow}>
+          CAPSULES DATA
+        </Typography>
+        <MaterialReactTable
+          columns={capsuleColumns}
+          data={capsules}
+          initialState={{
+            density: 'compact'
+          }}
+        />
+      </Box>
     </Box>
   );
 };
