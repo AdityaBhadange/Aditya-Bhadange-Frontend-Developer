@@ -4,6 +4,7 @@ import { useGetRockets, useGetCapsules } from '../redux/api.hooks';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './styles/capsulesTable.styles';
 import image2 from '../framework/assets/images/space-x-image-2.jpg';
+import { Capsule } from '../types/spaceX.types';
 
 const CapsulesTable = () => {
   const classes = useStyles();
@@ -19,7 +20,6 @@ const CapsulesTable = () => {
     return <div>Error occurred while fetching data</div>;
   }
 
-  const rockets = rocketsQuery.getRocketsData;
   const capsules = capsulesQuery.getCapsulesData;
 
   // // Define table columns for rockets
@@ -72,10 +72,8 @@ const CapsulesTable = () => {
   //     accessorKey: 'first_stage.reusable',
   //     header: 'Reusable'
   //   }
-  //   // Add more columns based on the data structure
   // ];
 
-  // Define table columns for capsules
   const capsuleColumns: MRT_ColumnDef[] = [
     {
       accessorKey: 'capsule_serial',
@@ -94,26 +92,69 @@ const CapsulesTable = () => {
       header: 'Type'
     },
     {
-      accessorKey: 'details',
-      header: 'Details'
-    },
-    {
-      accessorKey: 'reuse_count',
-      header: 'Reuse Count'
-    },
-    {
-      accessorKey: 'landings',
-      header: 'Landings'
-    },
-    {
       accessorKey: 'original_launch',
       header: 'Original Launch'
     }
-    // Add more columns based on the data structure
   ];
 
-  console.log('rockets: ', rockets);
-  console.log('capsules: ', capsules);
+  // const onRowClickHandler = (rowData: any) => {
+  //   console.log('rowData: ', rowData);
+  // };
+
+  // const cellClickFunc = (
+  //   onRowClick: ((rowData: unknown) => void | undefined) | undefined,
+  //   column: MRT_Column<Record<string, unknown>>,
+  //   row: MRT_Row<Record<string, unknown>>
+  // ): TableCellProps => {
+  //   if (!onRowClick) {
+  //     return {
+  //       onClick: () => {
+  //         return null;
+  //       }
+  //     };
+  //   }
+  //   return {
+  //     onClick: () => {
+  //       if (onRowClick) {
+  //         onRowClick(row?.original);
+  //       }
+  //       return row.getToggleSelectedHandler();
+  //     }
+  //   };
+  // };
+
+  // Function to format capsule details
+  const formatCapsuleDetails = (rowdata: Capsule) => {
+    const parsedDetails: Capsule = JSON.parse(JSON.stringify(rowdata));
+
+    return (
+      <div>
+        <p>Capsule Serial: {parsedDetails.capsule_serial}</p>
+        <p>Capsule ID: {parsedDetails.capsule_id}</p>
+        <p>Status: {parsedDetails.status}</p>
+        <p>Original Launch: {new Date(parsedDetails.original_launch).toLocaleString()}</p>
+        <p>Landings: {parsedDetails.landings}</p>
+        <p>Type: {parsedDetails.type}</p>
+        <p>Details: {parsedDetails.details}</p>
+        <p>Reuse Count: {parsedDetails.reuse_count}</p>
+        <p>Missions:</p>
+        <ul>
+          {parsedDetails.missions.map((mission, index) => (
+            <li key={index}>{`Name: ${mission.name}, Flight: ${mission.flight}`}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+
+  const CapsuleDetails = (rowData: Capsule) => {
+    return (
+      <div>
+        <h2>Capsule Details - </h2>
+        {formatCapsuleDetails(rowData)}
+      </div>
+    );
+  };
 
   return (
     <Box>
@@ -140,6 +181,11 @@ const CapsulesTable = () => {
           initialState={{
             density: 'compact'
           }}
+          enableStickyHeader
+          renderDetailPanel={({ row }) => CapsuleDetails(row?.original as Capsule)}
+          // muiTableBodyCellProps={({ column, row }) => {
+          //   return cellClickFunc(onRowClickHandler, column, row);
+          // }}
         />
       </Box>
     </Box>
