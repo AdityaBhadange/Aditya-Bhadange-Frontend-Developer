@@ -3,6 +3,7 @@ import { Theme, ThemeProvider } from '@mui/material/styles';
 import defaultTheme from './styles/defaultTheme.styles';
 import { Box } from '@mui/material';
 import AppRoutes from './components/AppRoutes';
+import './index.css';
 
 function App() {
   const [theme, setTheme] = useState<Theme>(defaultTheme);
